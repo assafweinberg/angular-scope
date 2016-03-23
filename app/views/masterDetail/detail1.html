@@ -1,0 +1,25 @@
+<div class="padded detail1">
+<h2>Details1 message: {{Details1.vm.text}}</h2>
+
+<h4>I have access to my master controller!</h4> 
+<p>{{Master.vm.text}}</p>
+
+<h4>So does a shared scope directive</h4>
+<shared-scope-directive></shared-scope-directive>
+
+<h4>But not an isolate scope directive</h4>
+<isolate-scope-directive 
+  attribute-property="{{Details1.vm.text}}" 
+  bound-property="Master.vm.text"
+  parent-function="Details1.vm.updateMessage()"
+  >
+
+</isolate-scope-directive>
+
+<h4>I can reassign arrays and my view updates so long as the array isn't a direct property of the controller</h4>
+Numbers Array: <span ng-repeat="num in Details1.vm.numbers">{{num}}&nbsp;</span>
+<button ng-click="Details1.vm.replaceArray()">Replace</button>
+
+
+
+</div>
